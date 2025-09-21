@@ -48,10 +48,10 @@ def load_model():
     """Load the trained model"""
     try:
         model = tf.keras.models.load_model('fine_tuned_best.h5')
-        st.success("✅ Model loaded successfully!")
+        st.success(" Model loaded successfully!")
         return model
     except Exception as e:
-        st.error(f"❌ Error loading model: {e}")
+        st.error(f" Error loading model: {e}")
         st.info("Make sure 'fine_tuned_best.h5' is in the same folder")
         return None
 
@@ -94,25 +94,17 @@ def main():
     
     # Sidebar info
     with st.sidebar:
-        st.markdown("### ℹ️ About")
+        st.markdown("### ℹ About")
         st.info("""
         **Simple Cat vs Dog Classifier**
         - Upload image or paste URL
         - AI will classify as Cat or Dog
         - Shows confidence percentage
         """)
-        
-        st.markdown("### 👨‍💻 Portfolio")
-        st.markdown("""
-        **duchiep2512's ML Projects:**
-        - Chat_box_LLM
-        - Fake_News_Detection
-        - House_price_prediction
-        - Health_Analytics
-        """)
+       
     
     # Main interface - tabs
-    tab1, tab2 = st.tabs(["📁 Upload", "🌐 URL"])
+    tab1, tab2 = st.tabs([" Upload", " URL"])
     
     # Upload tab
     with tab1:
@@ -131,7 +123,7 @@ def main():
                 st.image(image, caption="Your Image", use_column_width=True)
             
             with col2:
-                if st.button("🔍 Classify", type="primary"):
+                if st.button(" Classify", type="primary"):
                     with st.spinner("Analyzing..."):
                         # Preprocess and predict
                         image_array = preprocess_image(image)
@@ -202,38 +194,11 @@ def main():
             
             except Exception as e:
                 st.error(f"Error: {e}")
-    
-    # Quick test examples
-    st.markdown("---")
-    st.markdown("### 🎯 Quick Test")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    examples = [
-        ("Cat Example", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Kittyply_edit1.jpg/300px-Kittyply_edit1.jpg"),
-        ("Dog Example", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Golden_Retriever_1_year-Edited.jpg/300px-Golden_Retriever_1_year-Edited.jpg"),
-        ("Another Cat", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/300px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg")
-    ]
-    
-    for i, (name, url) in enumerate(examples):
-        with [col1, col2, col3][i]:
-            if st.button(f"Try {name}", key=f"ex_{i}"):
-                try:
-                    response = requests.get(url, timeout=5)
-                    image = Image.open(BytesIO(response.content))
-                    
-                    image_array = preprocess_image(image)
-                    predicted_class, confidence, emoji = predict_image(model, image_array)
-                    
-                    st.success(f"{emoji} {predicted_class} ({confidence:.1%})")
-                
-                except:
-                    st.error("Failed to load example")
-    
+      
     # Footer
     st.markdown("---")
     st.markdown(
-        '<p style="text-align: center; color: #666;">🤖 Built with TensorFlow & Streamlit | 👨‍💻 duchiep2512</p>', 
+        '<p style="text-align: center; color: #666;"> Built with TensorFlow & Streamlit |  duchiep2512</p>', 
         unsafe_allow_html=True
     )
 
