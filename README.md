@@ -95,11 +95,5 @@ Trải nghiệm ứng dụng trực tiếp tại:
 4. **Deploy lên Render:**
    - Đảm bảo đã có file `render.yaml`.
    - Đẩy code lên Render và cấu hình theo hướng dẫn.
+   - Đường dẫn của tôi sau khi Deploy lên Render : [https://cat-and-dog-classifier.onrender.com/](https://cat-and-dog-classifier.onrender.com/)
 
-## Tác giả
-
-- duchiep2512
-
-## License
-
-MIT (hoặc bổ sung nếu bạn muốn)
